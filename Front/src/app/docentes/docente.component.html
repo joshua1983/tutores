@@ -1,5 +1,4 @@
-<div class="row">
-  <div class="col s12 m7">
+
     <h2 class="header">{{ docente.nombre }}</h2>
     <div class="card horizontal">
       <div class="card-image">
@@ -7,12 +6,27 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <p>I am a very simple card. I am good at containing small bits of information.</p>
+          <table>
+            <tr>
+              <th>Niveles</th>
+              <td>
+                <ul>
+                  <li *ngFor="let nivel of docente.niveles">
+                    {{nivel}}
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <th>Precio</th>
+              <td>
+                $20.000
+              </td>
+            </tr>
+          </table>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
+          <compra [docente]="docente"></compra>
         </div>
       </div>
     </div>
-  </div>
-</div>

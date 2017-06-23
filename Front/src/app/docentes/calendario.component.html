@@ -1,0 +1,101 @@
+
+<table>
+    <thead>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miercoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+        <th>Sabado</th>
+        <th>Domingo</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td >
+                <table *ngIf="calendario?.horario?.lunes" >
+                    <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                        <td [class]="horaDisponible(hora,calendario.horario.lunes)">
+                            {{hora}} PM
+                        </td>
+                    </tr>
+                </table>
+                <div *ngIf="!calendario?.horario?.lunes" >
+                    <div class="nodisponible"></div>
+                </div>
+            </td>
+            <td >
+                <table *ngIf="calendario?.horario?.martes" >
+                    <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                        <td [class]="horaDisponible(hora,calendario.horario.martes)">
+                            {{hora}} PM
+                        </td>
+                    </tr>
+                </table>
+                <div *ngIf="!calendario?.horario?.martes" >
+                    <div class="nodisponible"></div>
+                </div>
+            </td>
+            <td >
+                <table *ngIf="calendario?.horario?.miercoles" >
+                    <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                        <td [class]="horaDisponible(hora,calendario.horario.miercoles)">
+                            {{hora}} PM
+                        </td>
+                    </tr>
+                </table>
+                <div *ngIf="!calendario?.horario?.miercoles" >
+                    <div>No disponible</div>
+                </div>
+            </td>
+            <td >
+                <table *ngIf="calendario?.horario?.jueves" >
+                    <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                        <td [class]="horaDisponible(hora,calendario.horario.jueves)">
+                            {{hora}} PM
+                        </td>
+                    </tr>
+                </table>
+                <div *ngIf="!calendario?.horario?.jueves" >
+                    <div>No disponible</div>
+                </div>
+            </td>
+            <td >
+                <table *ngIf="calendario?.horario?.viernes" >
+                    <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                        <td [class]="horaDisponible(hora,calendario.horario.viernes)">
+                            {{hora}} PM
+                        </td>
+                    </tr>
+                </table>
+                <div *ngIf="!calendario?.horario?.viernes" >
+                    <div>No disponible</div>
+                </div>
+            </td>
+            <td >
+                <table *ngIf="calendario?.horario?.sabado" >
+                    <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                        <td [class]="horaDisponible(hora,calendario.horario.sabado)">
+                            {{hora}} PM
+                        </td>
+                    </tr>
+                </table>
+                <div *ngIf="!calendario?.horario?.sabado" >
+                    <div>No disponible</div>
+                </div>
+            </td>
+            <td >
+                <table *ngIf="calendario?.horario?.domingo" >
+                    <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                        <td [class]="horaDisponible(hora,calendario.horario.domingo)">
+                            {{hora}} PM
+                        </td>
+                    </tr>
+                </table>
+                <div *ngIf="!calendario?.horario?.domingo" >
+                    <div>No disponible</div>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    
+</table>

@@ -5,8 +5,18 @@ import { Docente } from './docente.model'
 export class DocenteServicio{
     getIdsDocentes(): Docente[] {
         return   [
-                    { id: 11, nombre: 'Mr. Nice' },
-                    { id: 12, nombre: 'Narco' },
+                    { 
+                        id: 11, 
+                        nombre: 'Mr. Nice',
+                        horario: {
+                            lunes: [8,9,10],
+                            martes: [9,10]
+                        },
+                        niveles:[
+                            'A1', 'A1.2'
+                        ]
+                    },
+                    { id: 12, nombre: 'Marco' },
                     { id: 13, nombre: 'Bombasto' },
                     { id: 14, nombre: 'Celeritas' },
                     { id: 15, nombre: 'Magneta' },

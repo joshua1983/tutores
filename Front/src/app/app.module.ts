@@ -7,11 +7,15 @@ import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { DocenteComponent } from './docentes/docente.component';
+import { CalendarioComponent } from './docentes/calendario.component'
+import { CompraComponent } from './docentes/compra.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    DocenteComponent
+    DocenteComponent,
+    CalendarioComponent,
+    CompraComponent
   ],
   imports: [
     BrowserModule,
