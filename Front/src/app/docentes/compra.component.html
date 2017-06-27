@@ -1,5 +1,6 @@
 <div class="input-field" >
-        <input placeholder="Cantidad horas..." type="number" maxlength="2" size="2" [(ngModel)]="horasCompra">
+    <label for="txt_cantidad_horas">Horas</label>
+    <input id="txt_cantidad_horas" placeholder="Cantidad horas..." type="number" maxlength="2" size="2" [(ngModel)]="horasCompra">
     <button class="btn waves-effect waves-light" (click)="comprarHoras()">Comprar
     <i class="material-icons right">send</i>
   </button>

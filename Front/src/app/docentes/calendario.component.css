@@ -1,6 +1,10 @@
 .disponible{
     background-color: lightgreen;
+    cursor: pointer;
 }
 .nodisponible{
     background-color: lightgray;
+}
+.textoTabla td{
+    font-size: 10px;
 }

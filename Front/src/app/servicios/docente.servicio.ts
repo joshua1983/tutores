@@ -9,8 +9,13 @@ export class DocenteServicio{
                         id: 11, 
                         nombre: 'Mr. Nice',
                         horario: {
-                            lunes: [8,9,10],
-                            martes: [9,10]
+                            lunes:[2,4],
+                            martes:[3,5],
+                            miercoles:[4,6],
+                            jueves:[4,6],
+                            viernes:[4,6],
+                            sabado:[2,3,4,5],
+                            domingo:[2,3,4,5]
                         },
                         niveles:[
                             'A1', 'A1.2'

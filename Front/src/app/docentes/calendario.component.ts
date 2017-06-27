@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Docente } from '../servicios/docente.model'
+import { Hora } from '../servicios/hora.model'
+import { CompraServicioWrapper } from '../servicios/compraWrapper.servicio' 
 
 @Component({
   selector: 'calendario',
@@ -9,10 +11,20 @@ import { Docente } from '../servicios/docente.model'
 export class CalendarioComponent {
     @Input()
     calendario: Docente;
+    hora:Hora;
+
+    constructor(private servicioCompraWrapper:CompraServicioWrapper){}
+
+    agregarHora(_hora:number, _dia:string){
+      this.hora = new Hora();
+      this.hora.dia = _dia;
+      this.hora.hora = _hora;
+      this.servicioCompraWrapper.addHoraCanastaDocente(this.hora);
+    }
 
     horaDisponible(hora: number, horario:number[]): string{
       let clase = "";
-      if (horario.indexOf(hora) > 0){
+      if (horario.indexOf(hora) >= 0){
         clase = "disponible";
       }else{
         clase = "nodisponible";
