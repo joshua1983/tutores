@@ -1,7 +1,15 @@
-<div class="input-field" >
-    <label for="txt_cantidad_horas">Horas</label>
-    <input id="txt_cantidad_horas" placeholder="Cantidad horas..." type="number" maxlength="2" size="2" [(ngModel)]="horasCompra">
-    <button class="btn waves-effect waves-light" (click)="comprarHoras()">Comprar
+<div class="row">
+<div class="col s6">
+  <span>
+      {{horasCompra}} horas en total
+  </span>
+</div>
+<div class="col s6">
+  <button class="btn waves-effect waves-light" (click)="comprarHoras()">Comprar
     <i class="material-icons right">send</i>
   </button>
 </div>
+</div>
+    
+    
+    

@@ -14,7 +14,7 @@
             <td >
                 <table *ngIf="calendario?.horario?.lunes" >
                     <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                        <td (click)="agregarHora(hora, 'lunes')" [class]="horaDisponible(hora,calendario.horario.lunes)">
+                        <td (click)="agregarHora(hora, 'lunes', $event)" [class]="horaDisponible(hora,calendario.horario.lunes)">
                             {{hora}} PM
                         </td>
                     </tr>
@@ -26,7 +26,7 @@
             <td >
                 <table *ngIf="calendario?.horario?.martes" >
                     <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                        <td [class]="horaDisponible(hora,calendario.horario.martes)">
+                        <td (click)="agregarHora(hora, 'martes', $event)"  [class]="horaDisponible(hora,calendario.horario.martes)">
                             {{hora}} PM
                         </td>
                     </tr>
@@ -38,7 +38,7 @@
             <td >
                 <table *ngIf="calendario?.horario?.miercoles" >
                     <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                        <td [class]="horaDisponible(hora,calendario.horario.miercoles)">
+                        <td (click)="agregarHora(hora, 'miercoles', $event)"  [class]="horaDisponible(hora,calendario.horario.miercoles)">
                             {{hora}} PM
                         </td>
                     </tr>
@@ -50,7 +50,7 @@
             <td >
                 <table *ngIf="calendario?.horario?.jueves" >
                     <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                        <td [class]="horaDisponible(hora,calendario.horario.jueves)">
+                        <td (click)="agregarHora(hora, 'jueves', $event)"  [class]="horaDisponible(hora,calendario.horario.jueves)">
                             {{hora}} PM
                         </td>
                     </tr>
@@ -62,7 +62,7 @@
             <td >
                 <table *ngIf="calendario?.horario?.viernes" >
                     <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                        <td [class]="horaDisponible(hora,calendario.horario.viernes)">
+                        <td (click)="agregarHora(hora, 'viernes', $event)"  [class]="horaDisponible(hora,calendario.horario.viernes)">
                             {{hora}} PM
                         </td>
                     </tr>
@@ -74,7 +74,7 @@
             <td >
                 <table *ngIf="calendario?.horario?.sabado" >
                     <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                        <td [class]="horaDisponible(hora,calendario.horario.sabado)">
+                        <td (click)="agregarHora(hora, 'sabado', $event)"  [class]="horaDisponible(hora,calendario.horario.sabado)">
                             {{hora}} PM
                         </td>
                     </tr>
@@ -86,7 +86,7 @@
             <td >
                 <table *ngIf="calendario?.horario?.domingo" >
                     <tr *ngFor="let hora of [2, 3, 4, 5, 6, 7, 8, 9, 10]">
-                        <td [class]="horaDisponible(hora,calendario.horario.domingo)">
+                        <td (click)="agregarHora(hora, 'domingo', $event)"  [class]="horaDisponible(hora,calendario.horario.domingo)">
                             {{hora}} PM
                         </td>
                     </tr>

@@ -25,13 +25,16 @@ export class CompraComponent implements OnInit {
         this.subscription = this.compraEvents.addHoraCanastaDocente$.subscribe(
             hora =>{
                 this.horasCompra += 1;
-                //this.horasSeleccionadas.push(hora);
+                if (this.horasSeleccionadas == undefined){
+                    this.horasSeleccionadas = new Array<Hora>();
+                }
+                this.horasSeleccionadas.push(hora);
             }
         )
     }
 
     comprarHoras():void{
-        alert("comprar "+ this.horasCompra);
+        alert("comprar "+ this.horasCompra+" para el docente: "+this.docente.id);
     }
 
 }
