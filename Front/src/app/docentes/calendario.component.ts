@@ -16,11 +16,15 @@ export class CalendarioComponent {
     constructor(private servicioCompraWrapper:CompraServicioWrapper){}
 
     agregarHora(_hora:number, _dia:string, event){
-      this.hora = new Hora();
-      this.hora.dia = _dia;
-      this.hora.hora = _hora;
-      this.servicioCompraWrapper.addHoraCanastaDocente(this.hora);
-      event.target.className='nodisponible';
+      if (event.target.className != 'nodisponible'){
+        this.hora = new Hora();
+        this.hora.dia = _dia;
+        this.hora.hora = _hora;
+        this.servicioCompraWrapper.addHoraCanastaDocente(this.hora);
+        event.target.className='nodisponible';
+      }else{
+        
+      }
       
     }
 

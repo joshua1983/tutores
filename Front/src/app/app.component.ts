@@ -14,14 +14,12 @@ export class AppComponent implements OnInit {
   docentes:Docente[];
   
   ngOnInit(): void{
-    this.getDocentes();
+    
   }
 
   constructor(private docenteServicio: DocenteServicio){
+     docenteServicio.getIdsDocentes().then(docentes => this.docentes = docentes);
   }
 
-  getDocentes(){
-    this.docentes = this.docenteServicio.getIdsDocentes();
-  }
 
 }

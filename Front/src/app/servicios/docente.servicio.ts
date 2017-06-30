@@ -3,11 +3,12 @@ import { Docente } from './docente.model'
 
 @Injectable()
 export class DocenteServicio{
-    getIdsDocentes(): Docente[] {
-        return   [
+    
+    getIdsDocentes(): Promise<Array<Docente>> {
+        var docentes=   [
                     { 
                         id: 11, 
-                        nombre: 'Mr. Nice',
+                        nombre: 'Docente1',
                         horario: {
                             lunes:[2,4],
                             martes:[3,5],
@@ -21,15 +22,10 @@ export class DocenteServicio{
                             'A1', 'A1.2'
                         ]
                     },
-                    { id: 12, nombre: 'Marco' },
-                    { id: 13, nombre: 'Bombasto' },
-                    { id: 14, nombre: 'Celeritas' },
-                    { id: 15, nombre: 'Magneta' },
-                    { id: 16, nombre: 'RubberMan' },
-                    { id: 17, nombre: 'Dynama' },
-                    { id: 18, nombre: 'Dr IQ' },
-                    { id: 19, nombre: 'Magma' },
-                    { id: 20, nombre: 'Tornado' }
+                    { id: 12, nombre: 'Docente2' },
+                    { id: 13, nombre: 'Docente3' },
+                    { id: 14, nombre: 'Docente4' }                    
                 ];
+        return Promise.resolve(docentes);
     }
 }
