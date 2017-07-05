@@ -4,8 +4,10 @@ import { CompraServicio } from './servicios/compra.servicio'
 import { CompraServicioWrapper } from './servicios/compraWrapper.servicio'
 import { Docente } from './servicios/docente.model'
 
+
+
 @Component({
-  selector: 'app-root',
+  selector: 'app-component',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   providers: [DocenteServicio, CompraServicio, CompraServicioWrapper]

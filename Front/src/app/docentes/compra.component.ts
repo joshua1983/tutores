@@ -5,6 +5,9 @@ import { CompraServicio } from '../servicios/compra.servicio'
 import { CompraServicioWrapper } from '../servicios/compraWrapper.servicio' 
 import { Subscription }   from 'rxjs/Subscription';
 
+import { Router } from '@angular/router';
+import { CarroCompras } from '../servicios/carrito';
+
 @Component({
   selector: 'compra',
   templateUrl: './compra.component.html',
@@ -17,7 +20,10 @@ export class CompraComponent implements OnInit {
     horasSeleccionadas:Array<Hora>;
     subscription: Subscription;
 
-    constructor(private compraServicio:CompraServicio, private compraEvents:CompraServicioWrapper){
+    constructor(private compraServicio:CompraServicio, 
+                private compraEvents:CompraServicioWrapper,
+                private router:Router,
+                private carro: CarroCompras){
 
     }
 
@@ -29,12 +35,20 @@ export class CompraComponent implements OnInit {
                     this.horasSeleccionadas = new Array<Hora>();
                 }
                 this.horasSeleccionadas.push(hora);
+                
             }
         )
     }
 
     comprarHoras():void{
         alert("comprar "+ this.horasCompra+" para el docente: "+this.docente.id);
+        var datosCompra = {
+            totalHoras: this.horasCompra,
+            docente: this.docente,
+            horas: this.horasSeleccionadas
+        }
+        this.carro.data = datosCompra;
+        this.router.navigate(['/facturar']);
     }
 
 }

@@ -10,20 +10,33 @@ import { DocenteComponent } from './docentes/docente.component';
 import { CalendarioComponent } from './docentes/calendario.component'
 import { CompraComponent } from './docentes/compra.component'
 
+import { RouterModule, Routes } from '@angular/router';
+
+import { APPROUTER } from './commons/route';
+import { PageNotFoundComponent } from './commons/PageNotFound';
+import { InitComponent } from './init.component';
+
+import { FacturaComponent } from './compra/factura.component';
+import { CarroCompras } from './servicios/carrito';
+
 @NgModule({
   declarations: [
     AppComponent,
     DocenteComponent,
     CalendarioComponent,
-    CompraComponent
+    CompraComponent,
+    PageNotFoundComponent,
+    InitComponent,
+    FacturaComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterializeModule
+    MaterializeModule,
+    RouterModule.forRoot(APPROUTER)
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [ CarroCompras ],
+  bootstrap: [ InitComponent ]
 })
 export class AppModule { }
