@@ -41,7 +41,7 @@ export class CompraComponent implements OnInit {
     }
 
     comprarHoras():void{
-        alert("comprar "+ this.horasCompra+" para el docente: "+this.docente.id);
+        //alert("comprar "+ this.horasCompra+" para el docente: "+this.docente.id);
         var datosCompra = {
             totalHoras: this.horasCompra,
             docente: this.docente,

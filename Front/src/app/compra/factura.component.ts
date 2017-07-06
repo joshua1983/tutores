@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CarroCompras } from '../servicios/carrito';
-
+import { Router } from '@angular/router';
 
 @Component({
     selector:'factura-component',
@@ -9,7 +9,14 @@ import { CarroCompras } from '../servicios/carrito';
 
 export class FacturaComponent{
 
-    public constructor(private carro:CarroCompras){
+    public constructor(private carro:CarroCompras, private router:Router){
+        
         console.log(carro);
+    }
+
+    ngOnInit(){
+        if (this.carro.data.totalHoras == undefined){
+            this.router.navigate(['./']);
+        }
     }
 }
