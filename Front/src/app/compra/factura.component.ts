@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 
 export class FacturaComponent{
 
+
     public constructor(private carro:CarroCompras, private router:Router){
         
-        console.log(carro);
     }
 
     ngOnInit(){

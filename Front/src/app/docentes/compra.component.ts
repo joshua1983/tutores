@@ -35,7 +35,6 @@ export class CompraComponent implements OnInit {
                     this.horasSeleccionadas = new Array<Hora>();
                 }
                 this.horasSeleccionadas.push(hora);
-                
             }
         )
     }
