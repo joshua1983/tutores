@@ -35,19 +35,24 @@ export class CompraComponent implements OnInit {
                     this.horasSeleccionadas = new Array<Hora>();
                 }
                 this.horasSeleccionadas.push(hora);
+                
             }
         )
     }
 
     comprarHoras():void{
-        //alert("comprar "+ this.horasCompra+" para el docente: "+this.docente.id);
+        // guardar datos en el servicio y mandar el ID
+        var retorno:string;
         var datosCompra = {
             totalHoras: this.horasCompra,
-            docente: this.docente,
+            docente: this.docente.id,
             horas: this.horasSeleccionadas
         }
-        this.carro.data = datosCompra;
-        this.router.navigate(['/facturar']);
+        console.log(datosCompra);
+        this.compraServicio.guardarCotizacion(datosCompra)
+        .subscribe((data:string) => retorno = data, error => console.log(error),
+        () => console.log('datos enviados'));
+        //this.router.navigate(['/facturar']);
     }
 
 }

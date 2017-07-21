@@ -22,6 +22,7 @@ export class CalendarioComponent {
         this.hora.hora = _hora;
         this.servicioCompraWrapper.addHoraCanastaDocente(this.hora);
         event.target.className='nodisponible';
+        
       }else{
         
       }

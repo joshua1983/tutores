@@ -11,7 +11,7 @@ export const APPROUTER:Routes = [
         component: FacturaComponent
     },
     {
-        path: '',
+        path: '/',
         component: AppComponent
     },
     {

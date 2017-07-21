@@ -7,8 +7,9 @@ import { MaterializeModule } from 'angular2-materialize';
 
 import { AppComponent } from './app.component';
 import { DocenteComponent } from './docentes/docente.component';
-import { CalendarioComponent } from './docentes/calendario.component'
-import { CompraComponent } from './docentes/compra.component'
+import { CalendarioComponent } from './docentes/calendario.component';
+import { CompraComponent } from './docentes/compra.component';
+import { Configuracion } from './servicios/configuracion';
 
 import { RouterModule, Routes } from '@angular/router';
 
@@ -36,7 +37,7 @@ import { CarroCompras } from './servicios/carrito';
     MaterializeModule,
     RouterModule.forRoot(APPROUTER)
   ],
-  providers: [ CarroCompras ],
+  providers: [ CarroCompras, Configuracion ],
   bootstrap: [ InitComponent ]
 })
 export class AppModule { }
