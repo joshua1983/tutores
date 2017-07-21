@@ -13,5 +13,5 @@ import { Component } from '@angular/core';
 })
 
 export class PageNotFoundComponent{
-    private LOGO = require('./img/notfound.jpg');
+     LOGO = require('./img/notfound.jpg');
 }
