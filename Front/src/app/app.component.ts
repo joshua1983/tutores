@@ -16,11 +16,19 @@ export class AppComponent implements OnInit {
   docentes:Docente[];
   
   ngOnInit(): void{
-    
+    this.getTodosDocentes();
   }
 
   constructor(private docenteServicio: DocenteServicio){
-     docenteServicio.getIdsDocentes().then(docentes => this.docentes = docentes);
+     //docenteServicio.getIdsDocentes().then(docentes => this.docentes = docentes);
+  }
+
+  private getTodosDocentes(){
+    this.docenteServicio
+        .getDocentes()
+        .subscribe((data: Docente[]) => this.docentes = data,
+                  error => console.log(error),
+                () => console.log("cargado docentes"));
   }
 
 
