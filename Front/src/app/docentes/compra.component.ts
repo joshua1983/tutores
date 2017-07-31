@@ -48,7 +48,7 @@ export class CompraComponent implements OnInit {
             docente: this.docente.id,
             horas: this.horasSeleccionadas
         }
-        console.log(datosCompra);
+        
         this.compraServicio.guardarCotizacion(datosCompra)
         .subscribe((data:string) => retorno = data, error => console.log(error),
         () => console.log('datos enviados'));

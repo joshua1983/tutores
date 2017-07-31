@@ -13,26 +13,17 @@ export class CompraServicio{
 
     constructor(private _configuracion: Configuracion,
                 private _http: Http){
-        this.actionUrl = _configuracion.Server + "guardarCotizacion";
+        this.actionUrl = _configuracion.Server + "addDocenteHorario";
         this.headers = new Headers();
         this.headers.append('Content-Type', 'application/json');
         this.headers.append('Accept', 'application/json');
     }
 
     guardarCotizacion(_datosCompra:any): Observable<string>{
-        let id_docente = _datosCompra.docente.id;
-        let horas_json = JSON.stringify( _datosCompra.horas );
-
-        let paquete = JSON.stringify({
-            id_docente: id_docente,
-            horas_json: horas_json
-        });
-
-        return this._http.post(this.actionUrl, paquete, {
-            headers: this.headers
-        })
-        .map((response: Response) => <string>response.json())
-        .catch(this.handleError);
+        let datos = JSON.stringify(_datosCompra);
+        return this._http.post(this.actionUrl,datos, {headers:this.headers})
+                         .map((response:Response) => <string>response.json())
+                         .catch(this.handleError);
     }
 
     private handleError(error: Response) {

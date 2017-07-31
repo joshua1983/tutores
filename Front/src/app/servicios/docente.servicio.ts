@@ -10,10 +10,11 @@ import 'rxjs/add/operator/map';
 export class DocenteServicio{
 
     private docentes_url:string;
-
+    private docentes_add_url:string;
 
     constructor(private _http: Http, private _configuracion: Configuracion){
         this.docentes_url = _configuracion.Server + 'getDocentesHorarios';
+        this.docentes_add_url = _configuracion.Server + 'addDocenteHorario';
     }
 
 
@@ -23,6 +24,12 @@ export class DocenteServicio{
             .map((response: Response)=>
                 <Array<Docente>>response.json())
             .catch(this.handleError);
+    }
+    
+    addCitaDocente(data:any):Observable<string>{
+        let datos = JSON.stringify(data);
+        return this._http.post(this.docentes_add_url,datos).map((response:Response) => <string>response.json())
+        .catch(this.handleError);
     }
     
     getIdsDocentes(): Promise<Array<Docente>> {
