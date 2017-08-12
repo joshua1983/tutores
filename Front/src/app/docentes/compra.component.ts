@@ -50,9 +50,12 @@ export class CompraComponent implements OnInit {
         }
         
         this.compraServicio.guardarCotizacion(datosCompra)
-        .subscribe((data:string) => retorno = data, error => console.log(error),
-        () => console.log('datos enviados'));
-        //this.router.navigate(['/facturar']);
+        .subscribe((data:string) =>{
+          retorno = data;
+          this.router.navigate(['/facturar', retorno]);  
+        } , error => console.log(error),
+            () => console.log('datos enviados'));
+        
     }
 
 }

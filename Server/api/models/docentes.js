@@ -47,10 +47,39 @@ docenteModel.addCitaDocente = function (datos, callback){
     var sql_insert = "insert into horarios (id_docente, id_estudiante, fecha_registro, nombre_ext, correo_ext, horas) values(?,?,now(),?, ?,?)";
     connection.query(sql_insert, [id_docente, 1,'josue', 'josue.barrios@gmail.com', total_horas], function(err, result){
       if (err){
+        throw err;
         callback(err, -1);
       }else{
-        
-        callback(null, result.insertId);
+        //console.log(result.insertId);
+        /*
+        Registrar las horas y dias reservados
+        */
+        var errDetalle = undefined;
+
+        if (horas.length > 0){
+          for (var i=0; i<horas.length; i++){
+
+            var objHora = horas[i];
+            console.log(objHora);
+            var sql_insert_hora = "insert into detalle_horarios(id_horario, hora, dia_semana) values (?,?,?)";
+            connection.query(sql_insert_hora, [result.insertId, objHora.hora, objHora.dia], function(err1, result1){
+              if (err1){
+
+                errDetalle = err1;
+                i=total_horas.length;
+              }
+            });
+
+          }
+          if (errDetalle){
+            console.log(err1);
+            callback(null, -2);
+          }else{
+            callback(null, result.insertId);
+          }
+
+        }
+
       }
     });
 

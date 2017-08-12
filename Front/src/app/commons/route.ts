@@ -7,7 +7,7 @@ import { FacturaComponent } from '../compra/factura.component';
 
 export const APPROUTER:Routes = [
     {
-        path: 'facturar',
+        path: 'facturar/:id',
         component: FacturaComponent
     },
     {

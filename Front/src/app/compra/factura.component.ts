@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { CarroCompras } from '../servicios/carrito';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector:'factura-component',
@@ -9,14 +8,27 @@ import { Router } from '@angular/router';
 
 export class FacturaComponent{
 
+    id:string;
+    paramSub:any;
 
-    public constructor(private carro:CarroCompras, private router:Router){
+    public constructor(
+        private router: Router,
+        private route: ActivatedRoute){
         
     }
 
     ngOnInit(){
-        if (this.carro.data.totalHoras == undefined){
-            this.router.navigate(['./']);
-        }
+        this.paramSub = this.route
+            .params
+            .subscribe(params => {
+                console.log(params);
+                this.id = params["id"].toString();
+            });
+        
+            
+    }
+
+    ngOnDestroy(){
+        this.paramSub.unsubscribe();
     }
 }
